@@ -5,7 +5,7 @@ import os
 from config import UPLOAD_DIR
 from services.parser import extract_text_from_pdf
 from services.chunker import chunk_text
-from services.vector_store import add_chunks_to_index
+from services.vector_store import add_chunks_to_index, clear_index, remove_file_from_index
 
 router = APIRouter()
 
@@ -39,3 +39,15 @@ async def upload_pdfs(files: List[UploadFile] = File(...)):
             })
 
     return {"files_processed": len(files), "data": all_data}
+
+
+@router.delete("/clear")
+async def clear_all_documents():
+    clear_index()
+    return {"message": "All documents cleared successfully"}
+
+
+@router.delete("/remove/{filename}")
+async def remove_document(filename: str):
+    remove_file_from_index(filename)
+    return {"message": f"{filename} removed successfully"}
