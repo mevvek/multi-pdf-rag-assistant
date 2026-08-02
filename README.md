@@ -164,6 +164,7 @@ npm run dev
 
 **Vivek Yadav**
 GitHub: [@mevvek](https://github.com/mevvek)
+BCA , Invertis University
 
 ---
 
