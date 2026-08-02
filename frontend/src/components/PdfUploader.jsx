@@ -56,7 +56,7 @@ function PdfUploader({ uploadedFiles, onUploadSuccess, onClearAll, onRemoveFile 
       setFiles([])
     } catch (error) {
       setUploadResults([
-        { filename: "Upload failed", status: "failed", error: `DEBUG: ${error.name} - ${error.message}` },
+        { filename: "Upload failed", status: "failed", error: "Could not connect to server" },
       ])
     } finally {
       setIsUploading(false)
